@@ -15,7 +15,10 @@ Then I draw the line in the unprocessed image
 ![alt text](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/blob/master/test_images_output/result.png "Final result")
 
 One addition did was that I stored the slope of the (2) lines in degree and the lines itself to global variables.  The reason I did that is because on the next frame, I can recall these variables value.  Previously, I assumed the range of the slope to be > 25 degree or -<25 degree, but now that I know exactly, what slope that was previously compute. I make the assumption that the slope in the next frame will not change dramatically; therefore, I can refine the line segment filter to be more precise.
-Also, I redefine the ROI so that it will be +/-50 pixels away from the previous computed lines.  So that on next frame, the result will be more accurate.  
+Also, I redefine the ROI so that it will be +/-50 pixels away from the previous computed lines.  So that on next frame, the result will be more accurate.
+
+The videos where the pipeline processed can be found here.
+[Test videos output](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/tree/master/test_videos_output)
 
 **Identify potential shortcomings with your current pipeline**
 
