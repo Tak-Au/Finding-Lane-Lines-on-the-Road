@@ -9,7 +9,9 @@ I will need to convert the edges in format of pixels into line segments with xy 
 Once, I get all the line segments from hough transformation, I have to filter the line segments into 3 groups: left, right, and ignore using the slope of the line.  The thinking is that the left and right line will be in some acceptable range so any line that is not within the range can be ignore.  At first, I assumed the range to be >25 degree or -<25 degree.  
 From the left and right line segments bin, I use the numpy.poly fit function to fit the end points into line, the function will return the values of m (slope) and b (intercept) for both left and right line.  From the values, I compute the points when y is equal to the bottom of the image and to the middle of the image.  
 ![alt text](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/blob/master/test_images_output/hough.png "Hough with line fitting image")
+
 Then I draw the line in the unprocessed image 
+
 ![alt text](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/blob/master/test_images_output/result.png "Final result")
 
 One addition did was that I stored the slope of the (2) lines in degree and the lines itself to global variables.  The reason I did that is because on the next frame, I can recall these variables value.  Previously, I assumed the range of the slope to be > 25 degree or -<25 degree, but now that I know exactly, what slope that was previously compute. I make the assumption that the slope in the next frame will not change dramatically; therefore, I can refine the line segment filter to be more precise.
