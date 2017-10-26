@@ -1,5 +1,3 @@
-**Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.**
-
 ![alt text](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/blob/master/test_images_output/original.png "Original image")
 My pipeline consisted of following steps. First I convert the image from BRG format to HSV.  I created a yellow mask and a white mask.  Using the masks, I filter out all the pixel that doesn’t meet the mask and I will get the outline of the road only.  
 ![alt text](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/blob/master/test_images_output/color%20filter.png "filtered image")
@@ -20,10 +18,6 @@ Also, I redefine the ROI so that it will be +/-50 pixels away from the previous 
 The videos where the pipeline processed can be found here.
 [Test videos output](https://github.com/Tak-Au/Finding-Lane-Lines-on-the-Road/tree/master/test_videos_output)
 
-**Identify potential shortcomings with your current pipeline**
-
 The shortcoming with my current pipeline is that it doesn’t work well all the time, since the first filter works only for yellow and white lane lines, this pipeline will fail if the lane line are in different color.  Also, shadow and light levels can affect the performance of the filter because shadow can make white less white.  The filter does account for some variation but it doesn’t work under extreme lighting condition.  I did address this short coming in the pipeline by determining if at least one line is detected.  If at least one line is detected but the other one is not, the code will approximate where that missing line by using previous line data and the new line detected position since it is safe to assume that the left and the right lines are in fixed width apart.    
-
-**Suggest possible improvements to your pipeline**
 
 One improvement of this pipeline is to remove the color filter and try to make it work without it.  This did work for the first 2 videos but it failed in the challenge video.  This was due to the fact that the shadow caused the canny detector to fail.  I believe this can be overcome by using image processing. 
